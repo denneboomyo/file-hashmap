@@ -1,9 +1,11 @@
 {
     "name": "file-hashmap",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A CLI tool for creating a map of md5 hashes for all files in a given directory.",
     "main": "index.js",
-    "bin": "index.js",
+    "bin": {
+        "file-hashmap": "./index.js"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/denneboomyo/file-hashmap.git"
