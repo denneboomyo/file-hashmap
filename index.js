@@ -1,8 +1,10 @@
-const program = require("commander");
-const path = require("path");
-const fs = require("fs");
-const readDir = require("fs-readdir-recursive");
-const crypto = require("crypto");
+#!/usr/bin/env node
+
+var program = require("commander");
+var path = require("path");
+var fs = require("fs");
+var readDir = require("fs-readdir-recursive");
+var crypto = require("crypto");
 
 program
     .version("1.0.0")
@@ -15,12 +17,12 @@ if (!program.dir) {
     console.log("The target directory path is required. -h for help");
 } else {
     try {
-        const ret = {};
-        const files = readDir(program.dir);
+        var ret = {};
+        var files = readDir(program.dir);
 
         for (let i = 0; i < files.length; i++) {
-            const file = files[i];
-            const content = fs.readFileSync(path.join(program.dir, file));
+            var file = files[i];
+            var content = fs.readFileSync(path.join(program.dir, file));
             ret[file.replace(/\\/g, "/")] = crypto.createHash("md5").update(content).digest("hex");
         }
 
